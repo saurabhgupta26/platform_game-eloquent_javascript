@@ -8,10 +8,13 @@ var simpleLevelPlan = `
 ......#++++++++++++#..
 ......##############..
 ......................`;
-console.log("ALL IN LEVEL")
+console.log("ALL IN LEVEL");
 var Level = class Level {
   constructor(plan) {
-    let rows = plan.trim().split("\n").map((l) => [...l]);
+    let rows = plan
+      .trim()
+      .split("\n")
+      .map((l) => [...l]);
     this.height = rows.length;
     this.width = rows[0].length;
     this.startActors = [];
@@ -207,7 +210,7 @@ DOMDisplay.prototype.scrollPlayerIntoView = function (state) {
     this.dom.scrollLeft = center.x + margin - width;
   }
   if (center.y < top + margin) {
-    this.dom.scrollTop = center.y = margin;
+    this.dom.scrollTop = center.y - margin;
   } else if (center.y > bottom - margin) {
     this.dom.scrollTop = center.y + margin - height;
   }
