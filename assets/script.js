@@ -127,6 +127,8 @@ var simpleLevel = new Level(simpleLevelPlan);
 // var level = new Level(LEVEL);
 // console.log(level.width, "sadsadda", level.height);
 
+// Element being appended
+
 function elt(name, attrs, ...children) {
   let dom = document.createElement(name);
   for (let attr of Object.keys(attrs)) {
@@ -240,7 +242,7 @@ State.prototype.update = function (time, keys) {
 
   let player = newState.player;
   if (this.level.touches(player.pos, player.size, "lava")) {
-    // checking if the player's position is overlapping with the position of the lava and hecne life lost
+    // checking if the player's position is overlapping with the position of the lava and hence life lost
     return new State(this.level, actors, "lost");
   }
   for (let actor of actors) {
@@ -283,8 +285,7 @@ Lava.prototype.update = function (time, state) {
   }
 };
 
-var wobbleSpeed = 8,
-  wobbleDist = 0.07;
+var wobbleSpeed = 8, wobbleDist = 0.07;
 
 Coin.prototype.update = function (time) {
   let wobble = this.wobble + time * wobbleSpeed;
